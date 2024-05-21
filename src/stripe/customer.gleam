@@ -1,6 +1,9 @@
 //// The [`Customer`] type, associated types, and associated functions.
 //// All implementations as per https://stripe.com/docs/api/customers.
 
+import gleam/dict.{type Dict}
+import gleam/option.{type Option}
+
 pub type Address {
   Address(
     city: Option(String),
@@ -33,26 +36,26 @@ pub type Shipping {
   Shipping(address: Address, name: String, phone: Option(String))
 }
 
+pub type CashBalanceSettings {
+  CashBalanceSettings(
+    reconciliation_mode: ReconiliationMode,
+    using_merchant_default: Bool,
+  )
+}
+
 pub type CashBalance {
   CashBalance(
     object: String,
     available: Option(String),
     customer: String,
-    livemode: bool,
-    settings: CashBalanaceSettings,
+    livemode: Bool,
+    settings: CashBalanceSettings,
   )
 }
 
 pub type ReconiliationMode {
   Automatic
   Manual
-}
-
-pub type CashBalanceSettings {
-  CashBalanceSettings(
-    reconciliation_mode: ReconiliationMode,
-    using_merchant_default: bool,
-  )
 }
 
 pub type CouponAppliesTo {
@@ -81,17 +84,17 @@ pub type Coupon {
     applies_to: Option(CouponAppliesTo),
     created: Timestamp,
     currency: Option(Currency),
-    currency_options: Option(Map(Currency, CurrencyOption)),
+    currency_options: Option(Dict(Currency, CurrencyOption)),
     duration: Duration,
     duration_in_months: Option(Int),
-    livemode: bool,
+    livemode: Bool,
     max_redemptions: Option(Int),
-    metadata: Option(Map(String, String)),
+    metadata: Option(Dict(String, String)),
     name: Option(String),
     percent_off: Option(Float),
     redeem_by: Option(Timestamp),
     times_redeemed: Int,
-    valid: bool,
+    valid: Bool,
   )
 }
 
@@ -132,16 +135,16 @@ pub type Source {
     customer: Option(String),
     fingerprint: Option(String),
     last4: String,
-    metadata: Option(Map(String, String)),
+    metadata: Option(Dict(String, String)),
     routing_number: Option(String),
     status: String,
-    has_more: bool,
+    has_more: Bool,
     url: String,
   )
 }
 
 pub type Sources {
-  Sources(object: String, data: List(Source), has_more: bool, url: String)
+  Sources(object: String, data: List(Source), has_more: Bool, url: String)
 }
 
 pub type AutomaticTax {
@@ -177,7 +180,7 @@ pub type TaxExempt {
 pub type TaxIdOwnerType {
   Account
   Application
-  Customer
+  CustomerType
   Self
 }
 
@@ -253,7 +256,8 @@ pub type TaxIdType {
   VeRif
   VnTin
   ZaVat
-  Unknown // For legacy tax IDs with type unknown
+  Unknown
+  // For legacy tax IDs with type unknown
 }
 
 pub type TaxIdOwner {
@@ -261,7 +265,7 @@ pub type TaxIdOwner {
     account: Option(String),
     application: Option(String),
     customer: Option(String),
-    type: TaxIdOwnerType,
+    type_: TaxIdOwnerType,
   )
 }
 
@@ -287,16 +291,16 @@ pub type TaxId {
     country: Option(String),
     created: Timestamp,
     customer: Option(String),
-    livemode: bool,
+    livemode: Bool,
     owner: Option(TaxIdOwner),
-    type: TaxIdType,
+    type_: TaxIdType,
     value: String,
     verification: Option(TaxIdVerification),
   )
 }
 
 pub type TaxIds {
-  TaxIds(object: String, data: List(TaxId), has_more: bool, url: String)
+  TaxIds(object: String, data: List(TaxId), has_more: Bool, url: String)
 }
 
 pub type Customer {
@@ -309,15 +313,15 @@ pub type Customer {
     created: Int,
     currency: Option(String),
     default_source: Option(String),
-    delinquent: bool,
+    delinquent: Bool,
     description: Option(String),
     discount: Option(Discount),
     email: Option(String),
     invoice_prefix: Option(String),
     invoice_settings: Option(InvoiceSettings),
-    livemode: false,
+    livemode: Bool,
     // TODO: metadata more generic?
-    metadata: Option(Map(String, String)),
+    metadata: Option(Dict(String, String)),
     name: Option(String),
     next_invoice_sequence: Option(Int),
     phone: Option(String),
