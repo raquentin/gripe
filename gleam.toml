@@ -1,4 +1,4 @@
-name = "stripe"
+name = "gstripe"
 version = "0.0.1"
 description = "Stripe API bindings for Gleam."
 
