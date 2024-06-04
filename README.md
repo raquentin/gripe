@@ -1,20 +1,20 @@
-# stripe
+# gripe 
 
 [![Package Version](https://img.shields.io/hexpm/v/stripe)](https://hex.pm/packages/stripe)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/stripe/)
 
 ```sh
-gleam add stripe
+gleam add gripe
 ```
 ```gleam
-import stripe
+import gripe
 
 pub fn main() {
   // TODO: An example of the project in use
 }
 ```
 
-Further documentation can be found at <https://hexdocs.pm/stripe>.
+Further documentation can be found at <https://hexdocs.pm/gripe>.
 
 ## Development
 

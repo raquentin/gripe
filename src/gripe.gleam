@@ -1,15 +1,18 @@
+//// All implementations as per https://stripe.com/docs/api.
+
 import gleam/dict.{type Dict}
 import gleam/option.{type Option}
+import gleam/uri.{type Uri}
 
 pub type ApiKey =
   String
 
 pub opaque type StripeClient {
-  StripeClient(api_key: ApiKey)
+  StripeClient(api_key: ApiKey, base_url: Uri)
 }
 
-pub fn new(api_key: ApiKey) -> StripeClient {
-  StripeClient(api_key)
+pub fn new(api_key: ApiKey, base_url: Uri) -> StripeClient {
+  StripeClient(api_key, base_url)
 }
 
 pub type Address {

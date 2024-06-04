@@ -1,9 +1,9 @@
-name = "gstripe"
-version = "0.0.2"
+name = "gripe"
+version = "0.0.1"
 description = "Stripe API bindings for Gleam."
 
 licences = ["MIT"]
-repository = { type = "github", user = "raquentin", repo = "stripe" }
+repository = { type = "github", user = "raquentin", repo = "gripe" }
 
 target = "erlang"
 
