@@ -15,3 +15,6 @@ gleam_json = ">= 1.0.1 and < 2.0.0"
 
 [dev-dependencies]
 startest = ">= 0.2.4 and < 1.0.0"
+
+[erlang]
+otp_release = "24"
