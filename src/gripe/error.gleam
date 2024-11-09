@@ -1,4 +1,4 @@
-pub type StripeError {
+pub type ErrorCode {
   AccountClosed
   AccountCountryInvalidAddress
   AccountErrorCountryChangeRequiresAdditionalSteps
