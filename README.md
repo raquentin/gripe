@@ -1,4 +1,4 @@
-# gripe 
+# 💷 gripe 
 
 [![Package Version](https://img.shields.io/hexpm/v/stripe)](https://hex.pm/packages/stripe)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/stripe/)
